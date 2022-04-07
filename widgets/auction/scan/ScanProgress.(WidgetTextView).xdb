@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetTextView>
+	<Priority>150</Priority>
+	<Name>AuctionScanProgress</Name>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Size>60</Size>
+		</Y>
+	</Placement>
+	<FormatFileRef href="ScanProgress.txt" />
+	<TextStyle>
+		<multiline>true</multiline>
+	</TextStyle>
+</WidgetTextView>

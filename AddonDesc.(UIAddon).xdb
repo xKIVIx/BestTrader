@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<UIAddon>
+	<Name>BestTrader</Name>
+	<AutoStart>true</AutoStart>
+	<ScriptFileRefs>
+		<Item href="/Mods/SampleCommon/SampleAddonBase.lua" />
+		<Item href="scripts/common.lua" />
+		<Item href="scripts/auction.lua" />
+		<Item href="scripts/main.lua" />
+	</ScriptFileRefs>
+	<MainFormId>MainForm</MainFormId>
+	<Forms>
+		<Item>
+			<Id>MainForm</Id>
+			<Form href="widgets/MainForm.(WidgetForm).xdb" />
+		</Item>
+	</Forms>
+	<visObjects href="" />
+	<texts href="" />
+	<textures href="" />
+</UIAddon>
