@@ -7,24 +7,34 @@ function GetTimestampS()
 end
 
 function GetRootCategoryItemIdByName(name)
-    local roots = itemLib.GetRootCategories()
-    for k, r in pairs(roots) do
+    local cats = itemLib.GetRootCategories()
+    if cats == nil then
+        LogError("Failed get root categories")
+        return nil
+    end
+    for k, r in pairs(cats) do
         local categoryInfo = itemLib.GetCategoryInfo( r )
         if common.CompareWString(categoryInfo.name, name) == 0 then
             return r
         end
     end
+    LogError("Not found root category")
     return nil
 end
 
 function GetChildCategoryItemIdByName(rootName, name)
-    local cat = itemLib.GetChildCategories( GetRootCategoryItemIdByName(rootName) )
-    for i = 0, GetTableSize( cat ) do
-        local categoryInfo = itemLib.GetCategoryInfo(cat[i])
+    local cats = itemLib.GetChildCategories( GetRootCategoryItemIdByName(rootName) )
+    if cats == nil then
+        LogError("Failed get child categories")
+        return nil
+    end
+    for k, v in pairs(cats) do
+        local categoryInfo = itemLib.GetCategoryInfo(v)
         if common.CompareWString(categoryInfo.name, name) == 0 then
-            return cat[i]
+            return v
         end
     end
+    LogError("Not found child category")
     return nil
 end
 

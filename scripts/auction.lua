@@ -53,14 +53,12 @@ function GetSearchRequest()
         end
     end
 
-    --result['childCategory'] = GetChildCategoryItemIdByName(result['rootCategory'], result['childCategory'])
+    result['childCategory'] = GetChildCategoryItemIdByName(result['rootCategory'], result['childCategory'])
     result['rootCategory'] = GetRootCategoryItemIdByName(result['rootCategory'])
     result['levelMax'] = common.GetIntFromWString(result['levelMax'])
     result['levelMin'] = common.GetIntFromWString(result['levelMin'])
     result['rarityMax'] = GetQualityByName(result['rarityMax'])
     result['rarityMin'] = GetQualityByName(result['rarityMin'])
-    LogInfo(result['rarityMax'])
-    LogInfo(result['rarityMin'])
     return result
 end
 
@@ -68,9 +66,7 @@ function OnAuctionScanStart( params )
     gAuctionScanStartTimestampS = GetTimestampS()
     gAuctionScanSearchRequest = GetSearchRequest()
 
-    auction.Search( gAuctionScanSearchRequest, AUCTION_ORDERFIELD_TYPE, true, 1 )
-
-    LogInfo(gAuctionScanSearchRequest['rarityMax'])
+    auction.Search( gAuctionScanSearchRequest, AUCTION_ORDERFIELD_LEFTTIME, true, 1 )
 end
 
 function AuctionInit()
@@ -81,7 +77,7 @@ function AuctionInit()
     common.RegisterReactionHandler( OnAuctionScanStart, "StartScanAuction" )
 
     gAuctionSearchWts['rootCategory'] = wtAuction:GetChildChecked( "searchbar.rootCategory.text", true )
-    --gAuctionSearchWts['childCategory'] = wtAuction:GetChildChecked( "searchbar.childCategory.text", true )
+    gAuctionSearchWts['childCategory'] = wtAuction:GetChildChecked( "searchbar.childCategory.text", true )
     gAuctionSearchWts['levelMax'] = wtAuction:GetChildChecked( "searchbar.levelMax.edit", true )
     gAuctionSearchWts['levelMin'] = wtAuction:GetChildChecked( "searchbar.levelMax.edit", true )
     gAuctionSearchWts['name'] = wtAuction:GetChildChecked( "searchbar.name.edit", true )
