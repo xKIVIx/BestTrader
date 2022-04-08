@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <WidgetTextView>
-	<Name>AuctionConst.Legendary</Name>
-	<Visible>false</Visible>
+	<Name>ITEM_QUALITY_LEGENDARY</Name>
 	<FormatFileRef href="Legendary.txt" />
 </WidgetTextView>

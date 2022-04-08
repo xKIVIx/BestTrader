@@ -4,6 +4,7 @@
 	<Priority>80</Priority>
 	<Children>
 		<Item href="auction/MainPanel.(WidgetPanel).xdb#xpointer(/WidgetPanel)"/>
+		<Item href="common/MainPanel.(WidgetPanel).xdb#xpointer(/WidgetPanel)"/>
 	</Children>
 	<BackLayer href="" />
 	<FrontLayer href="" />

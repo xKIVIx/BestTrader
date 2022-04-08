@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Name>Common</Name>
+	<Children>
+		<Item href="const/Common.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="const/Dragon.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="const/Epic.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="const/Good.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="const/Junk.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="const/Legendary.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="const/Rar.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="const/Relic.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+		<Item href="const/Uncommon.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+	</Children>
+	<Visible>true</Visible>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+			<Pos>16</Pos>
+			<HighPos>16</HighPos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>16</Pos>
+			<Size>110</Size>
+		</Y>
+	</Placement>
+</WidgetPanel>

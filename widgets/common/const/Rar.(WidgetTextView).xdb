@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <WidgetTextView>
-	<Name>AuctionConst.Rar</Name>
-	<Visible>false</Visible>
+	<Name>ITEM_QUALITY_RARE</Name>
 	<FormatFileRef href="Rar.txt" />
 </WidgetTextView>

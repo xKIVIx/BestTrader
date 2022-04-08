@@ -7,11 +7,11 @@ function GetTimestampS()
 end
 
 function GetRootCategoryItemIdByName(name)
-    local cat = itemLib.GetRootCategories()
-    for i = 0, GetTableSize( cat ) do
-        local categoryInfo = itemLib.GetCategoryInfo( cat[i] )
+    local roots = itemLib.GetRootCategories()
+    for k, r in pairs(roots) do
+        local categoryInfo = itemLib.GetCategoryInfo( r )
         if common.CompareWString(categoryInfo.name, name) == 0 then
-            return cat[i]
+            return r
         end
     end
     return nil
@@ -20,7 +20,7 @@ end
 function GetChildCategoryItemIdByName(rootName, name)
     local cat = itemLib.GetChildCategories( GetRootCategoryItemIdByName(rootName) )
     for i = 0, GetTableSize( cat ) do
-        local categoryInfo = itemLib.GetCategoryInfo( cat[i] )
+        local categoryInfo = itemLib.GetCategoryInfo(cat[i])
         if common.CompareWString(categoryInfo.name, name) == 0 then
             return cat[i]
         end
@@ -28,27 +28,43 @@ function GetChildCategoryItemIdByName(rootName, name)
     return nil
 end
 
-function GetQualityByName(name)
-    if common.CompareWString(userMods.ToWString("Хлам"), name) == 0 then
-        return 'ITEM_QUALITY_JUNK'
-    elseif common.CompareWString(userMods.ToWString("Обычные"), name) == 0 then
-        return 'ITEM_QUALITY_GOODS'
-    elseif common.CompareWString(userMods.ToWString("Добротные"), name) == 0 then
-        return 'ITEM_QUALITY_COMMON'
-    elseif common.CompareWString(userMods.ToWString("Замечательные"), name) == 0 then
-        return 'ITEM_QUALITY_UNCOMMON'
-    elseif common.CompareWString(userMods.ToWString("Редкие"), name) == 0 then
-        return 'ITEM_QUALITY_RARE'
-    elseif common.CompareWString(userMods.ToWString("Легендарные"), name) == 0 then
-        return 'ITEM_QUALITY_EPIC'
-    elseif common.CompareWString(userMods.ToWString("Чудесные"), name) == 0 then
-        return 'ITEM_QUALITY_LEGENDARY'
-    elseif common.CompareWString(userMods.ToWString("Реликвии"), name) == 0 then
-        return 'ITEM_QUALITY_RELIC'
-    elseif common.CompareWString(userMods.ToWString("Драконьи"), name) == 0 then
-        return 'ITEM_QUALITY_DRAGON'
-    else
-        LogError("Unknown type quality")
+function GetWStringConstant(name)
+    local sysName = common.GetAddonInfo()['sysFullName']
+    local wtCommon = common.GetAddonMainForm( sysName ):GetChildChecked( "Common", false )
+    local wtConst = wtCommon:GetChildChecked( name, true )
+    if wtConst == nil then
+        LogError("Not found constant ", name)
         return nil
     end
+
+    return common.ExtractWStringFromValuedText(wtConst:GetValuedText())
+end
+
+function GetQualityByName(name)
+    local qualityEnums = {
+        'ITEM_QUALITY_JUNK',
+        'ITEM_QUALITY_GOODS',
+        'ITEM_QUALITY_COMMON',
+        'ITEM_QUALITY_UNCOMMON',
+        'ITEM_QUALITY_RARE',
+        'ITEM_QUALITY_EPIC',
+        'ITEM_QUALITY_LEGENDARY',
+        'ITEM_QUALITY_RELIC',
+        'ITEM_QUALITY_DRAGON'
+    }
+
+    for k, v in pairs(qualityEnums) do
+        local resConst = GetWStringConstant(v)
+        if resConst == nil then
+            LogError("Failed get constant ", v)
+            return nil
+        end
+
+        if common.CompareWString(resConst, name) == 0 then
+            return v
+        end
+    end
+
+    LogError("Unknown type quality ", name)
+    return nil
 end

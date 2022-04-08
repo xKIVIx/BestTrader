@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <WidgetTextView>
-	<Name>AuctionConst.Dragon</Name>
-	<Visible>false</Visible>
-	<FormatFileRef href="Relic.Dragon" />
+	<Name>ITEM_QUALITY_DRAGON</Name>
+	<FormatFileRef href="Dragon.txt" />
 </WidgetTextView>

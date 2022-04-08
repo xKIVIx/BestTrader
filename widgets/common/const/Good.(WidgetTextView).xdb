@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <WidgetTextView>
 	<Name>ITEM_QUALITY_GOODS</Name>
-	<Visible>false</Visible>
 	<FormatFileRef href="Good.txt" />
 </WidgetTextView>
