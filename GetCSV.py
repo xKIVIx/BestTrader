@@ -24,13 +24,13 @@ def ParseLotInfo(line: str):
     global __currentDataRow
     global __processedData
     global __scanTimestamp
-    matches = re.search(r"(?P<key>[\w]+)=(?P<value>[0-9]+)", line)
+    matches = re.search(r"(?P<key>[\w]+)=(?P<value>[0-9\-]+)", line)
     if matches:
         __currentDataRow[matches.groupdict()['key']] = int(
             matches.groupdict()['value'])
         return ParseLotInfo
 
-    matches = re.search(r"(?P<key>[\w]+)=(L|l)(?P<value>\"[\w ]*\")", line)
+    matches = re.search(r"(?P<key>[\w]+)=(L|l)\"(?P<value>[\w \-]*)\"", line)
     if matches:
         __currentDataRow[matches.groupdict()['key']] = matches.groupdict()[
             'value']
