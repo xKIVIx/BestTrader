@@ -30,6 +30,15 @@ function ScanCurrentLots()
         lotScanned['num'] = itemLib.GetStackInfo(lotInfo.itemId)['count']
         lotScanned['name'] = itemLib.GetName(lotInfo.itemId)
         lotScanned['timeLeft'] = nil
+        lotScanned['quality'] = itemLib.GetQuality(lotInfo.itemId)['quality']
+        lotScanned['lvl'] = itemInfo.level
+        local cat = itemLib.GetCategoryInfo( itemLib.GetCategory( lotInfo.itemId ) )
+        lotScanned['cat1'] = cat['name']
+        if cat['rootId'] == nil then
+            lotScanned['cat2'] = ""
+        else
+            lotScanned['cat2'] = itemLib.GetCategoryInfo(cat['rootId'])['name']
+        end
         gAuctionScanScannedLots[tostring(lotInfo.id)] = lotScanned
     end
 end
