@@ -30,7 +30,7 @@ def ParseLotInfo(line: str):
             matches.groupdict()['value'])
         return ParseLotInfo
 
-    matches = re.search(r"(?P<key>[\w]+)=(L|l)\"(?P<value>[\w \-]*)\"", line)
+    matches = re.search(r"(?P<key>[\w]+)=(L|l)\"(?P<value>[\w\W]*)\"", line)
     if matches:
         __currentDataRow[matches.groupdict()['key']] = matches.groupdict()[
             'value']
@@ -74,7 +74,7 @@ def ParseIdleState(line: str):
     return ParseIdleState
 
 
-def Parse(inputPath, outputPath):
+def Parse(inputPath):
     with open(inputPath, "r", encoding="utf-8-sig") as inputFile:
         parser = ParseIdleState
         for line in inputFile:
@@ -88,12 +88,12 @@ if __name__ == "__main__":
     parser.add_argument('--input', nargs='?',
                         help='Allod settings with dump', default=inputPath)
     parser.add_argument('--output', nargs='?',
-                        help='Output csv', default="result.csv")
+                        help='Output csv', default=outputPath)
 
     args = parser.parse_args()
-    Parse(args.input, args.output)
+    Parse(args.input)
 
-    with open(outputPath, "w", encoding="utf-8") as outputFile:
+    with open(args.output, "w", encoding="utf-8") as outputFile:
         outputFile.write(",".join(__processedData[0].keys()) + "\n")
         for row in __processedData:
             outputFile.write(",".join([str(row[k]) for k in row]) + "\n")
