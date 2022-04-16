@@ -20,4 +20,5 @@
 			<Size>200</Size>
 		</Y>
 	</Placement>
+	<Visible>false</Visible>
 </WidgetPanel>
