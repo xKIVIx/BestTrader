@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetEditLine>
+	<Priority>150</Priority>
+	<Name>Value</Name>
+	<Header>
+		<Prototype href="../../common/prototypes/editLine/EditLine.(WidgetEditLine).xdb#xpointer(/WidgetEditLine)" />
+	</Header>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_HIGH</Align>
+			<Size>25</Size>
+		</Y>
+	</Placement>
+	<filterAlias>INTEGER</filterAlias>
+</WidgetEditLine>

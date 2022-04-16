@@ -49,6 +49,7 @@ function UpdateScanWidget( totalPages )
 
     wtScanProgress:SetVal('total_page', tostring(totalPages))
     wtScanProgress:SetVal('current_page', tostring(gAuctionScanCurrPage))
+    wtScanProgress:SetVal('procent', string.format("%.1f", gAuctionScanCurrPage/totalPages * 100.0))
     if gAuctionScanStartTimestampS == 0 then
         wtScanProgress:SetVal('actual_time', '0')
     else
@@ -69,7 +70,7 @@ function OnAuctionSearchResult( params )
     if not (gAuctionScanStartTimestampS == 0) then
         ScanCurrentLots()
 
-        if gAuctionScanCurrPage <= params['totalPagesCount'] then
+        if gAuctionScanCurrPage < params['totalPagesCount'] then
             SearchRequest()
         else
             DumpScanResult()

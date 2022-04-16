@@ -12,7 +12,7 @@
 		<Item href="const/Relic.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
 		<Item href="const/Uncommon.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
 	</Children>
-	<Visible>true</Visible>
+	<Visible>false</Visible>
 	<Placement>
 		<X>
 			<Align>WIDGET_ALIGN_BOTH</Align>

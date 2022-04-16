@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<WidgetPanel>
+	<Priority>100</Priority>
+	<Name>AuctionBuyout</Name>
+	<Children>
+		<Item href="BuyButton.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="SellButton.(WidgetButton).xdb#xpointer(/WidgetButton)" />
+		<Item href="ScanProgress.(WidgetTextView).xdb#xpointer(/WidgetTextView)" />
+	</Children>
+	<Placement>
+		<X>
+			<Align>WIDGET_ALIGN_BOTH</Align>
+			<Pos>16</Pos>
+			<HighPos>16</HighPos>
+		</X>
+		<Y>
+			<Align>WIDGET_ALIGN_LOW</Align>
+			<Pos>142</Pos>
+			<Size>110</Size>
+		</Y>
+	</Placement>
+</WidgetPanel>
