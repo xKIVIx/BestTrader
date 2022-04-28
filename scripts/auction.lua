@@ -146,7 +146,7 @@ function BuyBestPrice()
             end
         end
     end
-    if isBuy = true then
+    if isBuy == true then
         gAuctionScanCurrPage = gAuctionScanCurrPage - 1
     end
 end
@@ -178,10 +178,8 @@ function OnAuctionSearchResult( params )
 
     if not (gAuctionScanStartTimestampS == 0) then
         if gAuctionBestPrices == nil then
-            LogInfo("Scan lots")
             ScanCurrentLots()
         else
-            LogInfo("Buy lots")
             BuyBestPrice()
         end
 
