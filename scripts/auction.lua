@@ -205,10 +205,9 @@ function GetSearchRequest()
 
     for k, v in pairs(gAuctionSearchWts) do
         local t = common.GetApiType(v)
-        if t == 'TextViewSafe' then
-            result[k] = v:GetValuedText()
-            result[k] = common.ExtractWStringFromValuedText(result[k])
-        elseif t == 'EditLineSafe' then
+        if t == 'Widget_TextViewSafe' then
+            result[k] = v:GetWString()
+        elseif t == 'Widget_EditLineSafe' then
             result[k] = v:GetText()
         else
             LogError("Unknown type ", t)
@@ -218,8 +217,8 @@ function GetSearchRequest()
 
     result['childCategory'] = GetChildCategoryItemIdByName(result['rootCategory'], result['childCategory'])
     result['rootCategory'] = GetRootCategoryItemIdByName(result['rootCategory'])
-    result['levelMax'] = common.GetIntFromWString(result['levelMax'])
-    result['levelMin'] = common.GetIntFromWString(result['levelMin'])
+    result['levelMax'] = result['levelMax']:ToInt()
+    result['levelMin'] = result['levelMin']:ToInt()
     result['rarityMax'] = GetQualityByName(result['rarityMax'])
     result['rarityMin'] = GetQualityByName(result['rarityMin'])
     return result

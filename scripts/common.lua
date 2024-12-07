@@ -47,7 +47,7 @@ function GetWStringConstant(name)
         return nil
     end
 
-    return common.ExtractWStringFromValuedText(wtConst:GetValuedText())
+    return wtConst:GetWString()
 end
 
 function GetQualityByName(name)
