@@ -7,11 +7,11 @@
 	<lazyLoad>false</lazyLoad>
 	<textureItem href="Cursor.(UISingleTexture).xdb#xpointer(/UISingleTexture)" />
 	<Layout>
-		<LeftX>1</LeftX>
-		<MiddleX>2</MiddleX>
-		<RightX>1</RightX>
-		<TopY>1</TopY>
-		<MiddleY>2</MiddleY>
-		<BottomY>1</BottomY>
+		<LeftX>0</LeftX>
+		<MiddleX>32</MiddleX>
+		<RightX>0</RightX>
+		<TopY>0</TopY>
+		<MiddleY>32</MiddleY>
+		<BottomY>0</BottomY>
 	</Layout>
 </WidgetLayerTiledTexture>

@@ -8,13 +8,7 @@
 		<Item href="scripts/auction.lua" />
 		<Item href="scripts/main.lua" />
 	</ScriptFileRefs>
-	<MainFormId>MainForm</MainFormId>
-	<Forms>
-		<Item>
-			<Id>MainForm</Id>
-			<Form href="widgets/MainForm.(WidgetForm).xdb" />
-		</Item>
-	</Forms>
+	<Form href="widgets/MainForm.(WidgetForm).xdb" />
 	<visObjects href="" />
 	<texts href="" />
 	<textures href="" />

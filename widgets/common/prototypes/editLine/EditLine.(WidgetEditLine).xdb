@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <WidgetEditLine>
-  <BackLayer href="TextBox.(WidgetLayerTiledTexture).xdb#xpointer(/WidgetLayerTiledTexture)" />
+  <BackLayer href="TransparentLayer.(WidgetLayerSimpleTexture).xdb#xpointer(/WidgetLayerSimpleTexture)" />
   <Visible>true</Visible>
   <Enabled>true</Enabled>
   <TabOrder>0</TabOrder>
